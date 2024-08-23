@@ -32,9 +32,9 @@ def bucket_inputs(
             batches[i][key] = date_map[key]
             max_length = max(max_length, len(batches[i]))
 
-    print(f"batch: batched {len(date_map)} airports into {len(batches)} batches")
+    print(f"bundler: split {len(date_map)} airports into {len(batches)} bucket")
     for i, batch in enumerate(batches):
-        print(f"batch {i+1}: {len(batch)} airports")
+        print(f"bucket {i}: {len(batch)} airports")
     time.sleep(1)
     return batches
 

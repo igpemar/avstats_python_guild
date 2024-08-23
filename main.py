@@ -4,9 +4,8 @@ import multiprocessing
 import pickle
 import time
 
-
 M_PROC = 10
-N_THREADS = 4
+N_THREADS = 2
 N_AIRPORTS = 1500
 
 
@@ -18,8 +17,12 @@ def main():
     request_buckets = utils.bucket_inputs(
         request_map, M_PROC, N_THREADS, method="random"
     )
+    input("Press any key to continue...")
 
     # We iterate over the request buckets and create a process for every N_THREADS
+
+    # Consider creating db connection pool
+
     for bucket_id in range(0, len(request_buckets), N_THREADS):
         target_bucket = {}
         for i in range(N_THREADS):
